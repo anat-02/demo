@@ -1,4 +1,13 @@
-<?php include('server.php'); ?>
+<?php include('server.php'); 
+
+$username = $_SESSION['username'];
+$query = "select * from users where username = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc()
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +47,18 @@
         </div>
     </nav>
 
+    <div class="container d-grid gap-3">
+        <form class="form">
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" class="form-control" disabled value="<?php echo $username; ?>">
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" class="form-control" disabled value="<?php echo $row['password']; ?>">
+            </div>
+        </form>
+    </div>
 
 </body>
 

@@ -47,26 +47,30 @@ $result = $stmt->get_result();
         </div>
     </nav>
 
-    <table>
-        <tr>
-            <th>Complaint ID:</th>
-            <th>Type of Issue:</th>
-            <th>Description</th>
-            <th>Payment Method:</th>
-            <th>Urgency:</th>
-            <th>Status:</th>
-        </tr>
-        <?php while($row = $result->fetch_assoc()) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Complaint ID:</th>
+                <th scope="col">Type of Issue:</th>
+                <th scope="col">Description</th>
+                <th scope="col">Payment Method:</th>
+                <th scope="col">Urgency:</th>
+                <th scope="col">Status:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while($row = $result->fetch_assoc()) {
             ?>
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['type']; ?></td>
-            <td><?php echo $row['description']; ?></td>
-            <td><?php echo $row['method']; ?></td>
-            <td><?php echo $row['urgent']; ?></td>
-            <td><?php echo $row['status']; ?></td>
-        </tr>
-        <?php } ?>
+            <tr>
+                <th scope="row"><?php echo $row['id']; ?></th>
+                <td><?php echo $row['type']; ?></td>
+                <td><?php echo $row['description']; ?></td>
+                <td><?php echo $row['method']; ?></td>
+                <td><?php echo $row['urgent']; ?></td>
+                <td><?php echo $row['status']; ?></td>
+            </tr>
+            <?php } ?>
+        </tbody>
     </table>
 
 </body>
