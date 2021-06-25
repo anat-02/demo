@@ -13,7 +13,7 @@
 
 <body>
     <div class="container d-grid gap-3"> 
-        <h1>Suggetions Box</h1>
+        <h1>Demo Company Complaints</h1>
         <h2 id="title">Login</h2>
         <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <div class="form-group">

@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand">Suggestions</a>
+            <a class="navbar-brand">Demo Company</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,14 +25,14 @@
                         <a class="nav-link active" aria-current="page" href="#">Complaint Form</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./profile.php">Profile</a>
+                        <a class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./complaintslist.php">Complaints List</a>
+                        <a class="nav-link" href="complaintslist.php">Complaints List</a>
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="nav-link" href="./logout.php">Log out</a>
+                    <a class="nav-link" href="logout.php">Log out</a>
                 </span>
             </div>
         </div>

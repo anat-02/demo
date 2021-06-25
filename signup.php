@@ -13,8 +13,8 @@
 
 <body>
     <div class="container d-grid gap-3">
-        <h1>Suggestions Box</h1>
-        <h2 id="title">Sign Up</h2>
+        <h1>Demo Company Complaints</h1>
+        <h2 id="title">Create Account</h2>
         <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
             <div class="form-group">
                 <label for="username">Username</label>

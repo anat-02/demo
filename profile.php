@@ -22,21 +22,23 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./complaintform.php">Complaint Form</a>
+                        <a class="nav-link active" aria-current="page" href="complaintform.php">Complaint Form</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./complaintslist.php">Complaints List</a>
+                        <a class="nav-link" href="complaintslist.php">Complaints List</a>
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="nav-link" href="./logout.php">Log out</a>
+                    <a class="nav-link" href="logout.php">Log out</a>
                 </span>
             </div>
         </div>
     </nav>
+
+
 </body>
 
 </html>
