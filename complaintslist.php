@@ -9,12 +9,13 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="scripts.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand">Suggestions</a>
+            <a class="navbar-brand">Demo Company</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,7 +39,22 @@
         </div>
     </nav>
 
-
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Complaint ID:</th>
+                <th scope="col">Type of Issue:</th>
+                <th scope="col">Payment Method:</th>
+                <th scope="col">Urgency:</th>
+                <th scope="col">Status:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"></th>
+            </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>
