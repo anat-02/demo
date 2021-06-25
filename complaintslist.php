@@ -1,4 +1,12 @@
-<?php include('server.php'); ?>
+<?php include('server.php'); 
+
+$username = $_SESSION['username'];
+$query = "select * from complaints where username = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +20,7 @@
     <script src="scripts.js"></script>
 </head>
 
-<body onload="showList()">
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand">Demo Company</a>
@@ -39,8 +47,28 @@
         </div>
     </nav>
 
-    <span id="complaint-table"></span>
-    
+    <table>
+        <tr>
+            <th>Complaint ID:</th>
+            <th>Type of Issue:</th>
+            <th>Description</th>
+            <th>Payment Method:</th>
+            <th>Urgency:</th>
+            <th>Status:</th>
+        </tr>
+        <?php while($row = $result->fetch_assoc()) {
+            ?>
+        <tr>
+            <td><?php echo $row['id']; ?></td>
+            <td><?php echo $row['type']; ?></td>
+            <td><?php echo $row['description']; ?></td>
+            <td><?php echo $row['method']; ?></td>
+            <td><?php echo $row['urgent']; ?></td>
+            <td><?php echo $row['status']; ?></td>
+        </tr>
+        <?php } ?>
+    </table>
+
 </body>
 
 </html>

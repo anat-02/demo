@@ -126,36 +126,4 @@ if($_POST['complaint']){
         $_SESSION['submission_success'] = "Complaint submitted successfully";
     }
 }
-
-// COMPLAINT LIST
-if($_GET){
-    $username = $_SESSION['username'];
-    $query = "select * from users where username = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-
-    while($row){
-        echo "<table>
-            <tr>
-                <th>Complaint ID:</th>
-                <th>Type of Issue:</th>
-                <th>Payment Method:</th>
-                <th>Urgency:</th>
-                <th>Status:</th>
-            </tr>
-            <tr>
-                <th>" . $row['id'] . "</th>
-                <th>" . $row['type'] . "</th>
-                <th>" . $row['description'] . "</th>
-                <th>" . $row['method'] . "</th>
-                <th>" . $row['urgent'] . "</th>
-            </tr>
-    </table>";
-    }
-
-    $stmt->close();
-}
 ?>
