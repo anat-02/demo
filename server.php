@@ -63,7 +63,7 @@ if($_POST['signup']){
         $stmt->execute();
         $_SESSION['username'] = $username;
   	    $_SESSION['success'] = "You are now logged in";
-  	    header('location: homepage.php');
+  	    header('location: complaintform.php');
     }
 }
 
@@ -89,7 +89,7 @@ if($_POST['login']){
         if ($row) { 
             $_SESSION['username'] = $username;
   	        $_SESSION['success'] = "You are now logged in";
-  	        header('location: homepage.php');
+  	        header('location: complaintform.php');
         } else {
             $does_not_match_err = "Wrong username/password combination";
         }

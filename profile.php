@@ -25,10 +25,10 @@
                         <a class="nav-link active" aria-current="page" href="./complaintform.php">Complaint Form</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./profile.php">Profile</a>
+                        <a class="nav-link" href="#">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=".#">Complaints List</a>
+                        <a class="nav-link" href="./complaintslist.php">Complaints List</a>
                     </li>
                 </ul>
                 <span class="nav-item">
