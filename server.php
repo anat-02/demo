@@ -139,6 +139,11 @@ $status = "";
 //UPDATE STATUS OF COMPLAINT
 if($_POST['status']){
     $status = $_POST["status"];
+    $id = $_POST["id"];
     $query = "update complaints set status = ? where id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $status, $id);
+    $stmt->execute();
+    $_SESSION['update_success'] = "Complaint updated successfully";
 }
 ?>

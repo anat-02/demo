@@ -66,6 +66,7 @@ $result = $stmt->get_result();
                 <td><?php echo $row['urgent']; ?></td>
                 <td>
                     <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                         <div class="form-group">
                             <select class="form-select" id="status" aria-label="Default select example" name="status"
                                 onchange='this.form.submit()'>
