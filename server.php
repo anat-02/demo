@@ -87,9 +87,16 @@ if($_POST['login']){
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
         if ($row) { 
-            $_SESSION['username'] = $username;
-  	        $_SESSION['success'] = "You are now logged in";
-  	        header('location: complaintform.php');
+            if($row['role']==="cu"){
+                $_SESSION['username'] = $username;
+  	            $_SESSION['success'] = "You are now logged in";
+  	            header('location: complaintform.php');
+            }
+            elseif($row['role']==="ad"){
+                $_SESSION['username'] = $username;
+  	            $_SESSION['success'] = "You are now logged in";
+  	            header('location: allcomplaints.php');
+            }
         } else {
             $does_not_match_err = "Wrong username/password combination";
         }

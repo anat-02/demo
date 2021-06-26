@@ -26,6 +26,7 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <span class="error form-control-sm"><?php echo $password_err; ?></span>
+                <span class="error"><?php echo $does_not_match_err; ?></span>
                 <input type="password" type="password" class="form-control" id="password" placeholder="Enter Password"
                     name="password" value="<?php echo $password; ?>">
             </div>

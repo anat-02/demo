@@ -31,13 +31,10 @@ $row = $result->fetch_assoc()
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="complaintform.php">Complaint Form</a>
+                        <a class="nav-link" href="allcomplaints.php">All Complaints</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="complaintslist.php">Complaints List</a>
                     </li>
                 </ul>
                 <span class="nav-item">

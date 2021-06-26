@@ -31,13 +31,13 @@ $result = $stmt->get_result();
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="complaintform.php">Complaint Form</a>
+                        <a class="nav-link" href="complaintform.php">Complaint Form</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=".#">Complaints List</a>
+                        <a class="nav-link active" aria-current="page" href="#">Complaints List</a>
                     </li>
                 </ul>
                 <span class="nav-item">
