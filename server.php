@@ -133,4 +133,12 @@ if($_POST['complaint']){
         $_SESSION['submission_success'] = "Complaint submitted successfully";
     }
 }
+
+$status = "";
+
+//UPDATE STATUS OF COMPLAINT
+if($_POST['status']){
+    $status = $_POST["status"];
+    $query = "update complaints set status = ? where id = ?";
+}
 ?>

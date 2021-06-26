@@ -64,7 +64,18 @@ $result = $stmt->get_result();
                 <td><?php echo $row['description']; ?></td>
                 <td><?php echo $row['method']; ?></td>
                 <td><?php echo $row['urgent']; ?></td>
-                <td><?php echo $row['status']; ?></td>
+                <td>
+                    <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                        <div class="form-group">
+                            <select class="form-select" id="status" aria-label="Default select example" name="status"
+                                onchange='this.form.submit()'>
+                                <option selected><?php echo $row['status']; ?></option>
+                                <option value="dismissed">Dismissed</option>
+                                <option value="solved">Solved</option>
+                            </select>
+                        </div>
+                    </form>
+                </td>
             </tr>
             <?php } ?>
         </tbody>

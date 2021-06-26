@@ -62,20 +62,20 @@
                 <label for="method">Payment Method:</label>
                 <span class="error form-control-sm"><?php echo $method_err; ?></span>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="method" id="method" value="mastercard">
-                    <label class="form-check-label" for="method">
+                    <input class="form-check-input" type="radio" name="method" id="method1" value="mastercard">
+                    <label class="form-check-label" for="method1">
                         MasterCard
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="method" id="method" value="visa">
-                    <label class="form-check-label" for="method">
+                    <input class="form-check-input" type="radio" name="method" id="method"2 value="visa">
+                    <label class="form-check-label" for="method2">
                         Visa
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="method" id="method" value="cash">
-                    <label class="form-check-label" for="method">
+                    <input class="form-check-input" type="radio" name="method" id="method3" value="cash">
+                    <label class="form-check-label" for="method3">
                         Cash
                     </label>
                 </div>
