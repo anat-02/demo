@@ -5,8 +5,7 @@
 
 <head>
     <title>Complaint Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -15,8 +14,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand">Demo Company</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
@@ -39,12 +37,12 @@
     </nav>
 
     <div class="container d-grid gap-3">
-        <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label for="menu">Type of Issue</label>
                 <span class="error form-control-sm"><?php echo $menu_err; ?></span>
                 <select class="form-select" id="menu" aria-label="Default select example" name="menu">
-                    <option selected>Select</option>
+                    <option disabled selected hidden>Select</option>
                     <option value="payment failed">Payment Failed</option>
                     <option value="refund">Refund</option>
                     <option value="other">Other</option>
@@ -54,8 +52,7 @@
             <div class="form-group">
                 <label for="description">Description</label>
                 <span class="error form-control-sm"><?php echo $description_err; ?></span>
-                <textarea class="form-control" name="description" id="description" rows="3"
-                    value="<?php echo $description; ?>"></textarea>
+                <textarea class="form-control" name="description" id="description" rows="3" value="<?php echo $description; ?>"></textarea>
             </div>
 
             <div class="form-group">
@@ -68,7 +65,7 @@
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="method" id="method"2 value="visa">
+                    <input class="form-check-input" type="radio" name="method" id="method2"  value="visa">
                     <label class="form-check-label" for="method2">
                         Visa
                     </label>
@@ -85,13 +82,13 @@
                 <label for="urgent">Urgent:</label>
                 <span class="error form-control-sm"><?php echo $urgent_err; ?></span>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="Y" id="urgent" name="urgent">
+                    <input class="form-check-input" type="radio" value="Y" id="urgent" name="urgent">
                     <label class="form-check-label" for="urgent">
                         Yes
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="N" id="urgent" name="urgent">
+                    <input class="form-check-input" type="radio" value="N" id="urgent" name="urgent">
                     <label class="form-check-label" for="urgent">
                         No
                     </label>
@@ -100,6 +97,7 @@
 
             <button type="submit" name="complaint" value="Submit" class="btn btn-primary">Submit</button>
         </form>
+
     </div>
 </body>
 
