@@ -1,5 +1,9 @@
 <?php include('server.php'); 
 
+if($_SESSION['role']!= "ad"){
+    header('location: complaintform.php');
+}
+
 $query = "select * from complaints";
 $stmt = $conn->prepare($query);
 $stmt->execute();
@@ -47,6 +51,7 @@ $result = $stmt->get_result();
             <tr>
                 <th scope="col">Complaint ID:</th>
                 <th scope="col">Username:</th>
+                <th scope="col">User ID:</th>
                 <th scope="col">Type of Issue:</th>
                 <th scope="col">Description</th>
                 <th scope="col">Payment Method:</th>
@@ -58,8 +63,9 @@ $result = $stmt->get_result();
             <?php while($row = $result->fetch_assoc()) {
             ?>
             <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
+                <th scope="row"><?php echo $row['complaint_id']; ?></th>
                 <td><?php echo $row['username']; ?></td>
+                <td><?php echo $row['user_id']; ?></td>
                 <td><?php echo $row['type']; ?></td>
                 <td><?php echo $row['description']; ?></td>
                 <td><?php echo $row['method']; ?></td>
