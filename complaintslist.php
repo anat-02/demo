@@ -1,9 +1,9 @@
 <?php include('server.php'); 
 
-$username = $_SESSION['username'];
-$query = "select * from complaints where username = ?";
+$user_id = $_SESSION['user_id'];
+$query = "select * from complaints where user_id = ?";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("s", $username);
+$stmt->bind_param("s", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
@@ -47,6 +47,14 @@ $result = $stmt->get_result();
         </div>
     </nav>
 
+    <p>
+        <?php
+            if( $_GET['submission'] == 'successful'):
+                echo 'Complaint submitted successfuly';
+            endif;
+        ?>
+    </p>
+
     <table class="table">
         <thead>
             <tr>
@@ -62,7 +70,7 @@ $result = $stmt->get_result();
             <?php while($row = $result->fetch_assoc()) {
             ?>
             <tr>
-                <th scope="row"><?php echo $row['id']; ?></th>
+                <th scope="row"><?php echo $row['complaint_id']; ?></th>
                 <td><?php echo $row['type']; ?></td>
                 <td><?php echo $row['description']; ?></td>
                 <td><?php echo $row['method']; ?></td>
