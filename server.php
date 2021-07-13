@@ -4,7 +4,7 @@ session_start();
 $servername = "localhost";
 $username = "user1";
 $password = "password1";
-$dbname = "TEST";
+$dbname = "demo";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if($conn->connect_error){
@@ -56,13 +56,14 @@ if($_POST['signup']){
         }
     }
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($does_not_match_err)){
-        $password = md5($password);
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        /*$password = md5($password);*/
         $query = "insert into users (username, password, role) values (?, ?, 'cu')";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("ss", $username, $password);
         $stmt->execute();
         $_SESSION['username'] = $username;
-  	    $_SESSION['success'] = "You are now logged in";
+  	    $_SESSION['login_success'] = "You are now logged in";
   	    header('location: complaintform.php');
     }
 }
@@ -78,25 +79,27 @@ if($_POST['login']){
     else {
         $username = clean_input($_POST["username"]);
         $password = clean_input($_POST["password"]);
-        $password = md5($password);
+        /*$password = md5($password);*/
 
-        $query = "select * from users where username = ? AND password = ?";
+        $query = "select * from users where username = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ss", $username, $password);
+        $stmt->bind_param("s", $username);
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        if ($row) { 
-            if($row['role']==="cu"){
+        if ($row) {
+            if(password_verify($password, $row['password'])){
                 $_SESSION['username'] = $username;
-  	            $_SESSION['success'] = "You are now logged in";
-  	            header('location: complaintform.php');
-            }
-            elseif($row['role']==="ad"){
-                $_SESSION['username'] = $username;
-  	            $_SESSION['success'] = "You are now logged in";
-  	            header('location: allcomplaints.php');
-            }
+                $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['role'] = $row['role'];
+                if($_SESSION != "ad"){
+                    header('location: complaintform.php');
+                }
+                elseif($_SESSION['role']==="ad"){
+  	                header('location: allcomplaints.php');
+                }
+            } 
+            
         } else {
             $does_not_match_err = "Wrong username/password combination";
         }
@@ -107,8 +110,10 @@ if($_POST['login']){
 $menu = $description = $method = $urgent = "";
 $menu_err = $description_err = $method_err = $urgent_err = "";
 
+
 // COMPLAINT FORM
 if($_POST['complaint']){
+    
     if(empty($_POST["menu"])){
         $menu_err = "field required";
     } 
@@ -126,11 +131,17 @@ if($_POST['complaint']){
         $description = htmlspecialchars($_POST["description"]);
         $method = $_POST["method"];
         $urgent = $_POST["urgent"];
-        $query = "insert into complaints (type, description, method, urgent, status, username) values (?, ?, ?, ?, 'pending', ?)";
+        $query = "insert into complaints (username, user_id, type, description, method, urgent, status) values (?, ?, ?, ?, ?, ?, 'pending')";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sssss", $menu, $description, $method, $urgent, $_SESSION['username']);
-        $stmt->execute();
-        $_SESSION['submission_success'] = "Complaint submitted successfully";
+        $stmt->bind_param("ssssss", $_SESSION['username'], $_SESSION['user_id'], $menu, $description, $method, $urgent);
+        if($stmt->execute()){
+            $_SESSION['submission'] = "successful";
+            header('location: complaintslist.php?submission=successful');
+        }
+        else {
+            $_SESSION['submission'] = "failed";
+        }
+        
     }
 }
 
