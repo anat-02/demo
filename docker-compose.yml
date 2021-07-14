@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  php:
+    image: php:7.4-apache
+    ports:
+      - "3000:80"
+    volumes:
+      - ./src:/var/www/html/
+  db:
+    image: mariadb
+    command: mysqld --init-file="db_dump.sql"
+    restart: always
+    volumes: 
+      - "/var/lib/mysql/data:/var/lib/mysql"
+      - /var/docker/mariadb/conf:/etc/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - "3307:3306"

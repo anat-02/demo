@@ -36,16 +36,6 @@ CREATE TABLE `complaints` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `complaints`
---
-
-LOCK TABLES `complaints` WRITE;
-/*!40000 ALTER TABLE `complaints` DISABLE KEYS */;
-INSERT INTO `complaints` VALUES (7,'testuser1',4,'payment failed','hhhhhhhhhhhhhh','visa','Y','pending');
-/*!40000 ALTER TABLE `complaints` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `users`
 --
 
@@ -67,7 +57,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (4,'testuser1','e10adc3949ba59abbe56e057f20f883e','cu'),(5,'testadmin','4a7d1ed414474e4033ac29ccb8653d9b','ad');
+INSERT INTO `users` VALUES (5,'testadmin','4a7d1ed414474e4033ac29ccb8653d9b','ad');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
